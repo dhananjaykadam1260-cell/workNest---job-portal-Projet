@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Rejected Candidates | WorkNest</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet">
+
+</head>
+
+<body class="bg-light">
+
+<div class="container py-5">
+
+    <!-- HEADER -->
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <h2>
+                <i class="bi bi-x-circle text-danger"></i>
+                Rejected Candidates
+            </h2>
+
+            <p class="text-muted">
+                Candidates rejected for your jobs
+            </p>
+
+        </div>
+
+        <a th:href="@{/recruiter-applications}"
+           class="btn btn-outline-primary">
+
+            <i class="bi bi-arrow-left"></i>
+
+            All Applications
+
+        </a>
+
+    </div>
+
+
+    <!-- SUCCESS MESSAGE -->
+
+    <div th:if="${success}"
+         class="alert alert-success"
+         th:text="${success}">
+    </div>
+
+
+    <!-- ERROR MESSAGE -->
+
+    <div th:if="${error}"
+         class="alert alert-danger"
+         th:text="${error}">
+    </div>
+
+
+    <!-- NO CANDIDATES -->
+
+    <div th:if="${#lists.isEmpty(applications)}"
+         class="card shadow-sm">
+
+        <div class="card-body text-center py-5">
+
+            <i class="bi bi-people"
+               style="font-size: 50px;">
+            </i>
+
+            <h4 class="mt-3">
+                No Rejected Candidates
+            </h4>
+
+            <p class="text-muted">
+                Candidates will appear here after
+                you reject them.
+            </p>
+
+            <a th:href="@{/recruiter-applications}"
+               class="btn btn-primary">
+
+                View Applications
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- REJECTED CANDIDATES -->
+
+    <div th:if="${!#lists.isEmpty(applications)}"
+         class="card shadow-sm">
+
+        <div class="card-header">
+
+            <h5 class="mb-0">
+
+                <i class="bi bi-x-octagon"></i>
+
+                Rejected Candidates
+
+                <span class="badge bg-danger"
+                      th:text="${applications.size()}">
+                    0
+                </span>
+
+            </h5>
+
+        </div>
+
+
+        <div class="card-body p-0">
+
+            <div class="table-responsive">
+
+                <table class="table table-hover mb-0">
+
+                    <thead class="table-light">
+
+                    <tr>
+
+                        <th>#</th>
+
+                        <th>Candidate</th>
+
+                        <th>Email</th>
+
+                        <th>Job</th>
+
+                        <th>Applied Date</th>
+
+                        <th>Status</th>
+
+                        
+
+                    </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                    <tr th:each="app, stat : ${applications}">
+
+                        <!-- NUMBER -->
+
+                        <td th:text="${stat.count}">
+                            1
+                        </td>
+
+
+                        <!-- CANDIDATE -->
+
+                        <td>
+
+                            <span th:if="${app.user != null}"
+                                  th:text="${app.user.name}">
+                                Candidate
+                            </span>
+
+                            <span th:if="${app.user == null}"
+                                  class="text-muted">
+                                Candidate unavailable
+                            </span>
+
+                        </td>
+
+
+                        <!-- EMAIL -->
+
+                        <td>
+
+                            <span th:if="${app.user != null}"
+                                  th:text="${app.user.email}">
+                                email
+                            </span>
+
+                            <span th:if="${app.user == null}">
+                                -
+                            </span>
+
+                        </td>
+
+
+                        <!-- JOB -->
+
+                        <td>
+
+                            <span th:if="${app.job != null}"
+                                  th:text="${app.job.jobTitle}">
+                                Job
+                            </span>
+
+                            <span th:if="${app.job == null}">
+                                -
+                            </span>
+
+                        </td>
+
+
+                        <!-- DATE -->
+
+                        <td th:text="${app.appliedDate}">
+                            Date
+                        </td>
+
+
+                        <!-- STATUS -->
+
+                        <td>
+
+                            <span class="badge bg-danger"
+                                  th:text="${app.status}">
+                                Rejected
+                            </span>
+
+                        </td>
+
+
+                        
+
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,1443 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WorkNest | Find Your Dream Job</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f7f9fc;
+    color: #172033;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    color: white;
+    background:
+        linear-gradient(120deg, rgba(13,110,253,.96), rgba(8,66,152,.92)),
+        url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1800&q=80");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.08);
+    top: -160px;
+    right: -100px;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.06);
+    bottom: -150px;
+    left: -80px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 35px;
+}
+
+.logo i {
+    font-size: 32px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -2px;
+}
+
+.hero h1 span {
+    color: #dbeafe;
+}
+
+.hero-text {
+    max-width: 680px;
+    margin: 25px auto;
+    font-size: 19px;
+    color: rgba(255,255,255,.85);
+}
+
+/* SEARCH */
+
+.search-box {
+    background: white;
+    padding: 10px;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.22);
+    max-width: 900px;
+    margin: 35px auto 0;
+}
+
+.search-box .form-control {
+    border: none;
+    min-height: 58px;
+    box-shadow: none;
+    font-size: 16px;
+}
+
+.search-box .form-control:focus {
+    box-shadow: none;
+}
+
+.search-btn {
+    min-height: 58px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+/* HERO BUTTONS */
+
+.hero-buttons {
+    margin-top: 28px;
+}
+
+.hero-buttons .btn {
+    border-radius: 10px;
+    padding: 12px 24px;
+    font-weight: 600;
+}
+
+/* TRUST */
+
+.trust-bar {
+    background: white;
+    padding: 22px 0;
+    box-shadow: 0 3px 15px rgba(0,0,0,.05);
+}
+
+.trust-item {
+    text-align: center;
+}
+
+.trust-item strong {
+    display: block;
+    font-size: 23px;
+    color: #0d6efd;
+}
+
+.trust-item span {
+    color: #64748b;
+    font-size: 13px;
+}
+
+/* GENERAL */
+
+.section {
+    padding: 90px 0;
+}
+
+.section-title {
+    font-size: 38px;
+    font-weight: 800;
+}
+
+.section-subtitle {
+    color: #64748b;
+    max-width: 650px;
+    margin: 12px auto 50px;
+}
+
+/* CATEGORY */
+
+.category-card {
+    background: white;
+    border: 1px solid #e9edf3;
+    border-radius: 18px;
+    padding: 30px 20px;
+    text-align: center;
+    height: 100%;
+    transition: .3s;
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    border-color: #0d6efd;
+    box-shadow: 0 15px 35px rgba(13,110,253,.12);
+}
+
+.category-icon {
+    width: 70px;
+    height: 70px;
+    margin: auto;
+    border-radius: 18px;
+    background: #eaf2ff;
+    color: #0d6efd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+}
+
+.category-card h5 {
+    margin-top: 18px;
+    font-weight: 700;
+}
+
+.category-card p {
+    margin: 0;
+    color: #64748b;
+}
+
+/* JOBS */
+
+.jobs-section {
+    background: #f1f5f9;
+}
+
+.job-card {
+    background: white;
+    border: none;
+    border-radius: 18px;
+    padding: 25px;
+    height: 100%;
+    box-shadow: 0 5px 20px rgba(0,0,0,.05);
+    transition: .3s;
+}
+
+.job-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(0,0,0,.1);
+}
+
+.company-logo {
+    width: 55px;
+    height: 55px;
+    border-radius: 14px;
+    background: #eaf2ff;
+    color: #0d6efd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.job-card h5 {
+    font-weight: 700;
+}
+
+.job-company {
+    color: #0d6efd;
+    font-weight: 600;
+}
+
+.job-info {
+    color: #64748b;
+    font-size: 14px;
+}
+
+.job-card .btn {
+    border-radius: 9px;
+}
+
+/* RECRUITER */
+
+.recruiter-section {
+    background: white;
+}
+
+.recruiter-box {
+    background: linear-gradient(135deg, #0d6efd, #084298);
+    border-radius: 25px;
+    padding: 60px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.recruiter-box::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.08);
+    right: -100px;
+    top: -120px;
+}
+
+.recruiter-box h2 {
+    font-size: 40px;
+    font-weight: 800;
+}
+
+.recruiter-box p {
+    color: rgba(255,255,255,.8);
+    font-size: 17px;
+}
+
+.recruiter-icon {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.recruiter-icon i {
+    font-size: 130px;
+    opacity: .9;
+}
+
+/* STATS */
+
+.stats {
+    background: #0b1f3a;
+    color: white;
+    padding: 70px 0;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat h2 {
+    font-size: 45px;
+    font-weight: 800;
+}
+
+.stat p {
+    color: #94a3b8;
+    margin: 0;
+}
+
+/* FEATURES */
+
+.feature-card {
+    background: white;
+    border-radius: 18px;
+    padding: 35px 25px;
+    text-align: center;
+    height: 100%;
+    border: 1px solid #e9edf3;
+    transition: .3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(0,0,0,.08);
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    margin: auto;
+    border-radius: 50%;
+    background: #eaf2ff;
+    color: #0d6efd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 31px;
+}
+
+.feature-card h5 {
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+.feature-card p {
+    color: #64748b;
+}
+
+/* CTA */
+
+.cta {
+    padding: 80px 0;
+    background: #f1f5f9;
+}
+
+.cta-box {
+    background: linear-gradient(135deg, #0d6efd, #084298);
+    color: white;
+    padding: 60px 30px;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.cta-box h2 {
+    font-size: 40px;
+    font-weight: 800;
+}
+
+.cta-box p {
+    color: rgba(255,255,255,.8);
+}
+
+/* FOOTER */
+
+footer {
+    background: #0b1220;
+    color: white;
+    padding: 60px 0 25px;
+}
+
+.footer-title {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+footer p {
+    color: #94a3b8;
+}
+
+footer a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: .2s;
+}
+
+footer a:hover {
+    color: white;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: #172033;
+    margin-right: 7px;
+    transition: .2s;
+}
+
+.social-icon:hover {
+    background: #0d6efd;
+    color: white;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 991px) {
+
+    .hero {
+        min-height: 650px;
+    }
+
+    .recruiter-box {
+        padding: 40px 25px;
+    }
+
+    .recruiter-icon {
+        margin-top: 30px;
+    }
+
+}
+
+@media (max-width: 767px) {
+
+    .hero {
+        min-height: 720px;
+        padding: 60px 0;
+    }
+
+    .logo {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+
+    .hero h1 {
+        letter-spacing: -1px;
+    }
+
+    .hero-text {
+        font-size: 16px;
+    }
+
+    .search-box {
+        padding: 12px;
+    }
+
+    .search-box .form-control {
+        border: 1px solid #e5e7eb;
+        border-radius: 9px;
+        margin-bottom: 5px;
+    }
+
+    .section {
+        padding: 65px 0;
+    }
+
+    .section-title {
+        font-size: 30px;
+    }
+
+    .recruiter-box h2,
+    .cta-box h2 {
+        font-size: 30px;
+    }
+
+    .stat {
+        margin-bottom: 30px;
+    }
+
+    .stat:last-child {
+        margin-bottom: 0;
+    }
+
+}
+
+/* ANIMATION */
+
+.fade-up {
+    animation: fadeUp .8s ease forwards;
+}
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="container text-center hero-content">
+
+<div class="logo">
+
+<i class="bi bi-briefcase-fill"></i>
+
+<span>WorkNest</span>
+
+</div>
+
+
+<div class="fade-up">
+
+<h1>
+Find Your
+<span>Dream Job</span>
+</h1>
+
+
+<p class="hero-text">
+
+Discover thousands of opportunities from trusted companies.
+Build your career with the right opportunity.
+
+</p>
+
+
+<!-- SEARCH -->
+
+<form action="/jobs"
+      method="get"
+      class="search-box">
+
+<div class="row g-2 align-items-center">
+
+<div class="col-lg-5">
+
+<div class="input-group">
+
+<span class="input-group-text bg-white border-0">
+
+<i class="bi bi-search text-primary"></i>
+
+</span>
+
+<input type="text"
+       name="keyword"
+       class="form-control"
+       placeholder="Job title, skills or keywords">
+
+</div>
+
+</div>
+
+
+<div class="col-lg-4">
+
+<div class="input-group">
+
+<span class="input-group-text bg-white border-0">
+
+<i class="bi bi-geo-alt text-primary"></i>
+
+</span>
+
+<input type="text"
+       name="location"
+       class="form-control"
+       placeholder="Location">
+
+</div>
+
+</div>
+
+
+<div class="col-lg-3">
+
+<button type="submit"
+        class="btn btn-primary search-btn w-100">
+
+<i class="bi bi-search me-1"></i>
+
+Search Jobs
+
+</button>
+
+</div>
+
+</div>
+
+</form>
+
+
+<!-- ACTION BUTTONS -->
+
+<div class="hero-buttons d-flex justify-content-center flex-wrap gap-2">
+
+<a href="/login"
+   class="btn btn-light">
+
+<i class="bi bi-person-circle me-1"></i>
+
+Candidate Login
+
+</a>
+
+
+<a href="/register"
+   class="btn btn-outline-light">
+
+<i class="bi bi-person-plus me-1"></i>
+
+Create Account
+
+</a>
+
+
+<a href="/recruiter-login"
+   class="btn btn-outline-light">
+
+<i class="bi bi-building me-1"></i>
+
+Recruiter
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- TRUST BAR -->
+
+<section class="trust-bar">
+
+<div class="container">
+
+<div class="row g-3">
+
+<div class="col-6 col-md-3">
+
+<div class="trust-item">
+
+<strong>50K+</strong>
+
+<span>Active Jobs</span>
+
+</div>
+
+</div>
+
+
+<div class="col-6 col-md-3">
+
+<div class="trust-item">
+
+<strong>10K+</strong>
+
+<span>Companies</span>
+
+</div>
+
+</div>
+
+
+<div class="col-6 col-md-3">
+
+<div class="trust-item">
+
+<strong>1M+</strong>
+
+<span>Job Seekers</span>
+
+</div>
+
+</div>
+
+
+<div class="col-6 col-md-3">
+
+<div class="trust-item">
+
+<strong>95%</strong>
+
+<span>Success Rate</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- CATEGORIES -->
+
+<section class="section">
+
+<div class="container">
+
+<h2 class="section-title text-center">
+Explore Job Categories
+</h2>
+
+<p class="section-subtitle text-center">
+
+Find opportunities across India's most popular industries.
+
+</p>
+
+
+<div class="row g-4">
+
+<div class="col-6 col-lg-3">
+
+<div class="category-card">
+
+<div class="category-icon">
+
+<i class="bi bi-code-slash"></i>
+
+</div>
+
+<h5>Software</h5>
+
+<p>850+ Jobs</p>
+
+</div>
+
+</div>
+
+
+<div class="col-6 col-lg-3">
+
+<div class="category-card">
+
+<div class="category-icon">
+
+<i class="bi bi-bar-chart"></i>
+
+</div>
+
+<h5>Marketing</h5>
+
+<p>420+ Jobs</p>
+
+</div>
+
+</div>
+
+
+<div class="col-6 col-lg-3">
+
+<div class="category-card">
+
+<div class="category-icon">
+
+<i class="bi bi-bank"></i>
+
+</div>
+
+<h5>Finance</h5>
+
+<p>360+ Jobs</p>
+
+</div>
+
+</div>
+
+
+<div class="col-6 col-lg-3">
+
+<div class="category-card">
+
+<div class="category-icon">
+
+<i class="bi bi-heart-pulse"></i>
+
+</div>
+
+<h5>Healthcare</h5>
+
+<p>510+ Jobs</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- FEATURED JOBS -->
+
+<section class="section jobs-section">
+
+<div class="container">
+
+<h2 class="section-title text-center">
+Featured Opportunities
+</h2>
+
+<p class="section-subtitle text-center">
+
+Start your next career move with these popular opportunities.
+
+</p>
+
+
+<div class="row g-4">
+
+
+<div class="col-md-6 col-lg-4">
+
+<div class="job-card">
+
+<div class="d-flex align-items-center mb-4">
+
+<div class="company-logo">
+
+<i class="bi bi-code-slash"></i>
+
+</div>
+
+<div class="ms-3">
+
+<h5 class="mb-1">
+Java Developer
+</h5>
+
+<div class="job-company">
+TCS
+</div>
+
+</div>
+
+</div>
+
+
+<div class="job-info mb-2">
+
+<i class="bi bi-geo-alt me-2"></i>
+Pune
+
+</div>
+
+
+<div class="job-info mb-3">
+
+<i class="bi bi-currency-rupee me-2"></i>
+6 - 10 LPA
+
+</div>
+
+
+<span class="badge bg-success">
+Full Time
+</span>
+
+
+<a href="/login"
+   class="btn btn-primary float-end">
+
+Apply
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-6 col-lg-4">
+
+<div class="job-card">
+
+<div class="d-flex align-items-center mb-4">
+
+<div class="company-logo">
+
+<i class="bi bi-palette"></i>
+
+</div>
+
+<div class="ms-3">
+
+<h5 class="mb-1">
+UI/UX Designer
+</h5>
+
+<div class="job-company">
+Infosys
+</div>
+
+</div>
+
+</div>
+
+
+<div class="job-info mb-2">
+
+<i class="bi bi-geo-alt me-2"></i>
+Bangalore
+
+</div>
+
+
+<div class="job-info mb-3">
+
+<i class="bi bi-currency-rupee me-2"></i>
+8 - 12 LPA
+
+</div>
+
+
+<span class="badge bg-warning text-dark">
+Remote
+</span>
+
+
+<a href="/login"
+   class="btn btn-primary float-end">
+
+Apply
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-6 col-lg-4">
+
+<div class="job-card">
+
+<div class="d-flex align-items-center mb-4">
+
+<div class="company-logo">
+
+<i class="bi bi-cloud-check"></i>
+
+</div>
+
+<div class="ms-3">
+
+<h5 class="mb-1">
+DevOps Engineer
+</h5>
+
+<div class="job-company">
+Accenture
+</div>
+
+</div>
+
+</div>
+
+
+<div class="job-info mb-2">
+
+<i class="bi bi-geo-alt me-2"></i>
+Hyderabad
+
+</div>
+
+
+<div class="job-info mb-3">
+
+<i class="bi bi-currency-rupee me-2"></i>
+10 - 18 LPA
+
+</div>
+
+
+<span class="badge bg-info text-dark">
+Hybrid
+</span>
+
+
+<a href="/login"
+   class="btn btn-primary float-end">
+
+Apply
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="text-center mt-5">
+
+<a href="/login"
+   class="btn btn-primary btn-lg px-5">
+
+View All Jobs
+
+<i class="bi bi-arrow-right ms-2"></i>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- RECRUITER -->
+
+<section class="section recruiter-section">
+
+<div class="container">
+
+<div class="recruiter-box">
+
+<div class="row align-items-center">
+
+<div class="col-lg-7">
+
+<h2>
+Hire Great Talent Faster
+</h2>
+
+<p class="mt-3">
+
+Post your job on WorkNest and connect with qualified
+professionals looking for their next opportunity.
+
+</p>
+
+
+<div class="mt-4 d-flex flex-wrap gap-2">
+
+<a href="/recruiter-register"
+   class="btn btn-light btn-lg">
+
+<i class="bi bi-building-add me-1"></i>
+
+Become a Recruiter
+
+</a>
+
+
+<a href="/recruiter-login"
+   class="btn btn-outline-light btn-lg">
+
+Recruiter Login
+
+</a>
+
+</div>
+
+</div>
+
+
+<div class="col-lg-5 recruiter-icon">
+
+<i class="bi bi-building"></i>
+
+<h5 class="mt-2">
+10,000+ Companies
+</h5>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- STATS -->
+
+<section class="stats">
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-6 col-md-3 stat">
+
+<h2>50K+</h2>
+
+<p>Jobs</p>
+
+</div>
+
+
+<div class="col-6 col-md-3 stat">
+
+<h2>10K+</h2>
+
+<p>Companies</p>
+
+</div>
+
+
+<div class="col-6 col-md-3 stat">
+
+<h2>1M+</h2>
+
+<p>Candidates</p>
+
+</div>
+
+
+<div class="col-6 col-md-3 stat">
+
+<h2>95%</h2>
+
+<p>Success Rate</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- FEATURES -->
+
+<section class="section">
+
+<div class="container">
+
+<h2 class="section-title text-center">
+Why Choose WorkNest?
+</h2>
+
+<p class="section-subtitle text-center">
+
+Everything you need to discover, apply and grow your career.
+
+</p>
+
+
+<div class="row g-4">
+
+
+<div class="col-md-4">
+
+<div class="feature-card">
+
+<div class="feature-icon">
+
+<i class="bi bi-lightning-charge"></i>
+
+</div>
+
+<h5>Fast Hiring</h5>
+
+<p>
+Apply to opportunities quickly and connect with recruiters.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="col-md-4">
+
+<div class="feature-card">
+
+<div class="feature-icon">
+
+<i class="bi bi-shield-check"></i>
+
+</div>
+
+<h5>Trusted Companies</h5>
+
+<p>
+Discover opportunities from reliable organizations.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="col-md-4">
+
+<div class="feature-card">
+
+<div class="feature-icon">
+
+<i class="bi bi-globe2"></i>
+
+</div>
+
+<h5>Flexible Opportunities</h5>
+
+<p>
+Find office, hybrid and remote jobs that suit you.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+<div class="container">
+
+<div class="cta-box">
+
+<h2>
+Ready to Find Your Next Job?
+</h2>
+
+<p class="mt-3">
+Create your WorkNest account and start applying today.
+</p>
+
+
+<div class="mt-4">
+
+<a href="/register"
+   class="btn btn-light btn-lg px-4 me-2">
+
+<i class="bi bi-person-plus me-1"></i>
+
+Create Account
+
+</a>
+
+
+<a href="/login"
+   class="btn btn-outline-light btn-lg px-4">
+
+Login
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container">
+
+<div class="row g-4">
+
+
+<div class="col-md-5">
+
+<div class="footer-title">
+
+<i class="bi bi-briefcase-fill me-2"></i>
+WorkNest
+
+</div>
+
+<p class="mt-3">
+
+Your trusted career partner for discovering
+better opportunities and building a successful career.
+
+</p>
+
+</div>
+
+
+<div class="col-6 col-md-3">
+
+<h6 class="fw-bold">
+Quick Links
+</h6>
+
+<p class="mb-2">
+<a href="/about">About</a>
+</p>
+
+<p class="mb-2">
+<a href="/login">Jobs</a>
+</p>
+
+<p class="mb-2">
+<a href="/register">Register</a>
+</p>
+
+</div>
+
+
+<div class="col-6 col-md-4">
+
+<h6 class="fw-bold">
+Connect With Us
+</h6>
+
+<div class="mt-3">
+
+<a href="#" class="social-icon">
+<i class="bi bi-facebook"></i>
+</a>
+
+<a href="#" class="social-icon">
+<i class="bi bi-twitter-x"></i>
+</a>
+
+<a href="#" class="social-icon">
+<i class="bi bi-linkedin"></i>
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<hr class="border-secondary mt-5">
+
+
+<div class="text-center">
+
+<small class="text-secondary">
+
+© 2026 WorkNest. All Rights Reserved.
+
+</small>
+
+</div>
+
+</div>
+
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+</body>
+
+</html>
+

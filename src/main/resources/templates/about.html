@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WorkNest | About Us</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<style>
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:#f8f9fa;
+}
+
+.navbar{
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
+}
+
+.hero{
+    background:linear-gradient(rgba(13,110,253,.9),rgba(13,110,253,.9)),
+    url("https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+    color:white;
+    padding:100px 0;
+}
+
+.hero h1{
+    font-size:50px;
+    font-weight:bold;
+}
+
+.section-title{
+    font-weight:bold;
+    margin-bottom:40px;
+}
+
+.icon-box{
+    width:80px;
+    height:80px;
+    background:#eaf2ff;
+    color:#0d6efd;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:35px;
+    margin:auto;
+}
+
+.card{
+    border:none;
+    border-radius:15px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.team img{
+    width:120px;
+    height:120px;
+    object-fit:cover;
+    border-radius:50%;
+}
+
+footer{
+    background:#212529;
+    color:white;
+}
+
+footer a{
+    color:#ccc;
+    text-decoration:none;
+}
+
+footer a:hover{
+    color:#fff;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+
+<div class="container">
+
+<a class="navbar-brand fw-bold text-primary" href="/">
+<i class="bi bi-briefcase-fill"></i>
+WorkNest
+</a>
+
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="#">Jobs</a></li>
+<li class="nav-item"><a class="nav-link active" href="/about">About</a></li>
+<li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- Hero -->
+
+<section class="hero text-center">
+
+<div class="container">
+
+<h1>About WorkNest</h1>
+
+<p class="lead mt-3">
+Connecting talented people with amazing career opportunities.
+</p>
+
+</div>
+
+</section>
+
+<!-- About -->
+
+<section class="py-5">
+
+<div class="container">
+
+<div class="row align-items-center">
+
+<div class="col-lg-6">
+
+<h2 class="fw-bold mb-4">Who We Are</h2>
+
+<p class="text-muted">
+WorkNest is a modern online job portal designed to connect job seekers with top employers across India.
+Whether you're looking for your first job, a better opportunity, or skilled professionals for your company, WorkNest makes hiring simple and fast.
+</p>
+
+<p class="text-muted">
+Our goal is to make recruitment easier by providing a secure, user-friendly, and efficient platform for both candidates and recruiters.
+</p>
+
+</div>
+
+<div class="col-lg-6">
+
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80"
+class="img-fluid rounded shadow">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Mission -->
+
+<section class="py-5 bg-white">
+
+<div class="container">
+
+<h2 class="text-center section-title">Why Choose Us?</h2>
+
+<div class="row g-4">
+
+<div class="col-md-4">
+
+<div class="card p-4 text-center h-100">
+
+<div class="icon-box">
+<i class="bi bi-lightning-charge-fill"></i>
+</div>
+
+<h4 class="mt-3">Fast Hiring</h4>
+
+<p class="text-muted">
+Quickly connect with employers and apply for jobs in one click.
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card p-4 text-center h-100">
+
+<div class="icon-box">
+<i class="bi bi-shield-check"></i>
+</div>
+
+<h4 class="mt-3">Trusted Companies</h4>
+
+<p class="text-muted">
+Verified recruiters from startups, MNCs, and top organizations.
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card p-4 text-center h-100">
+
+<div class="icon-box">
+<i class="bi bi-globe2"></i>
+</div>
+
+<h4 class="mt-3">Remote Opportunities</h4>
+
+<p class="text-muted">
+Explore remote, hybrid, and full-time jobs across multiple industries.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Stats -->
+
+<section class="py-5 bg-primary text-white">
+
+<div class="container">
+
+<div class="row text-center">
+
+<div class="col-md-3">
+<h2>50K+</h2>
+<p>Jobs Posted</p>
+</div>
+
+<div class="col-md-3">
+<h2>10K+</h2>
+<p>Companies</p>
+</div>
+
+<div class="col-md-3">
+<h2>1M+</h2>
+<p>Registered Users</p>
+</div>
+
+<div class="col-md-3">
+<h2>95%</h2>
+<p>Success Rate</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Team -->
+
+<section class="py-5">
+
+<div class="container">
+
+<h2 class="text-center section-title">Meet Our Team</h2>
+
+<div class="row g-4 team">
+
+<div class="col-md-4 text-center">
+
+<img src="https://i.pravatar.cc/200?img=12">
+
+<h5 class="mt-3">Rahul Sharma</h5>
+
+<p class="text-muted">Founder & CEO</p>
+
+</div>
+
+<div class="col-md-4 text-center">
+
+<img src="https://i.pravatar.cc/200?img=32">
+
+<h5 class="mt-3">Priya Patel</h5>
+
+<p class="text-muted">HR Manager</p>
+
+</div>
+
+<div class="col-md-4 text-center">
+
+<img src="https://i.pravatar.cc/200?img=45">
+
+<h5 class="mt-3">Amit Verma</h5>
+
+<p class="text-muted">Technical Lead</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Footer -->
+
+<footer class="py-4">
+
+<div class="container text-center">
+
+<h4>WorkNest</h4>
+
+<p>Your Career Starts Here.</p>
+
+<p class="mb-0">
+© 2026 WorkNest. All Rights Reserved.
+</p>
+
+</div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
